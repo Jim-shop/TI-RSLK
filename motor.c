@@ -91,13 +91,18 @@ void motor_set(int v, int v_rot) {
 }
 
 void motor_spin(int degree) {
-    motor_set(0, 30);
-    clock_delay_ms(degree * 10);
+    if (degree > 0) {
+        motor_set(0, 70);
+        clock_delay_ms(degree * 4);
+    } else {
+        motor_set(0, -70);
+        clock_delay_ms(-degree * 4);
+    }
     motor_stop();
 }
 
 void motor_shift(int cm) {
-    motor_set(60, 0);
-    clock_delay_ms(cm * 50);
+    motor_set(70, 0);
+    clock_delay_ms(cm * 40);
     motor_stop();
 }

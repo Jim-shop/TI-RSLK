@@ -40,5 +40,5 @@ int32_t reflectance_position(uint8_t data) {
             sum_weight += weight[i];
         }
     }
-    return sum_weight / sum_bit;
+    return sum_bit ? sum_weight / sum_bit : 114514;
 }
